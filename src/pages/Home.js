@@ -1,17 +1,8 @@
 import React, { useState } from 'react'
 import Carousel from 'react-elastic-carousel'
-import HomeNavBar from '../Component/HomeNavBar'
+import NavBar from '../Component/NavBar'
 import HomeCard from '../Component/HomeCard'
 import styled from 'styled-components'
-
-const Header = styled.div`
-    width: 100%;
-    background-color: #007bff;
-
-    @media (min-width: 1400px) {
-        padding-left: 250px;
-    }
-`
 
 const FilterWrapper = styled.div`
     width: 100%;
@@ -42,9 +33,7 @@ export default function Home () {
     
     return (
         <div className="main">
-            <Header>
-                <HomeNavBar/>
-            </Header>
+            <NavBar/>
             
                 <div className="filter-container">
                 <FilterWrapper>
@@ -96,7 +85,7 @@ export default function Home () {
                                 
                             </div>
                             <div class="w-100 d-flex justify-content-end">
-                                <a href="/acommodations" type="submit" class="btn btn-danger">Buscar</a>
+                                <a href="/destinations" type="submit" class="btn btn-danger">Buscar</a>
                             </div>
                         
                         </form>
@@ -106,7 +95,7 @@ export default function Home () {
             <div className="offer-container">
                 <div className="offer-description-container">
                     <h6>Aproveite</h6>
-                    <h2>Rio de Janeiro, a cidade maravilhosa</h2>
+                    <h3>Rio de Janeiro, a cidade maravilhosa</h3>
                 </div>
                 
                 

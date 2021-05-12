@@ -10,6 +10,15 @@ const CardWrapper = styled.div`
     margin-right: 15px;
     border-radius: .25rem;
     border: solid inset 0.5px rgba(173, 173, 173, 0.445);
+
+    h3 {
+        margin-bottom: 40px;
+    }
+`
+
+const ButtonWrapper = styled.div`
+    display: flex;
+    justify-content: flex-end;
 `
 
 class HomeCard extends React.Component {
@@ -21,10 +30,12 @@ class HomeCard extends React.Component {
                     <Card.Body>
                         <h6>HOSPEDAGENS</h6>
                         <h3>Rio de Janeiro</h3>
-                        <p>Café da manhã</p>
-                        <Button variant="primary">
-                            R$ 469
-                        </Button>
+                        <ButtonWrapper>
+                            <Button variant="primary">
+                                R$ 469
+                            </Button>
+                        </ButtonWrapper>
+                        
                     </Card.Body>
                 </Card>
             </CardWrapper>    

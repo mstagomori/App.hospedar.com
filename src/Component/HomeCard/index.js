@@ -8,7 +8,8 @@ import styled from "styled-components";
 const CardWrapper = styled.div`
     width: 18rem;
     margin-right: 15px;
-    box-shadow: 0.2px 0.2px rgba(173, 173, 173, 0.445);
+    border-radius: .25rem;
+    border: solid inset 0.5px rgba(173, 173, 173, 0.445);
 `
 
 class HomeCard extends React.Component {

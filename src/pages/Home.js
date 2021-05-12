@@ -1,7 +1,17 @@
-import React, { useState } from 'react';
-import Carousel from 'react-elastic-carousel';
+import React, { useState } from 'react'
+import Carousel from 'react-elastic-carousel'
 import HomeNavBar from '../Component/HomeNavBar'
 import HomeCard from '../Component/HomeCard'
+import styled from 'styled-components'
+
+const Header = styled.div`
+    width: 100%;
+    background-color: #007bff;
+
+    @media (min-width: 1400px) {
+        padding-left: 250px;
+    }
+`
 
 export default function Home () {
     const breakPoints = [
@@ -15,7 +25,9 @@ export default function Home () {
     
     return (
         <div className="main">
-            <HomeNavBar/>
+            <Header>
+                <HomeNavBar/>
+            </Header>
             <div className="filter-container">
 
             </div>

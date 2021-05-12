@@ -60,7 +60,7 @@ export default function Login() {
                     </Form.Group>
 
                     <ButtonWrapper>
-                        <Button href="/" variant="primary" type="submit">
+                        <Button href="/" variant="primary" block type="submit">
                             Cadastre-se
                         </Button>
                     </ButtonWrapper>

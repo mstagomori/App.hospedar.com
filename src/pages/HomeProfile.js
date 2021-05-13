@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Carousel from 'react-elastic-carousel'
-import NavBar from '../Component/NavBar'
+import NavBarProfile from '../Component/NavBarProfile'
 import HomeCard from '../Component/HomeCard'
 import styled from 'styled-components'
 
@@ -21,7 +21,7 @@ const FilterWrapper = styled.div`
     }
 `
 
-export default function Home () {
+export default function HomeProfile () {
     const breakPoints = [
         { width: 1, itemsToShow: 1 },
         { width: 550, itemsToShow: 2, itemsToScroll: 1 },
@@ -33,7 +33,7 @@ export default function Home () {
     
     return (
         <div className="main">
-            <NavBar/>
+            <NavBarProfile/>
             
                 <div className="filter-container">
                 <FilterWrapper>

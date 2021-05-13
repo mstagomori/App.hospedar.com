@@ -5,6 +5,10 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Destinations from './pages/Destinations';
+import HomeProfile from './pages/HomeProfile';
+import ContactUs from './pages/ContactUs';
+import Profile from './pages/Profile';
+import ChangeProfile from './pages/ChangeProfile';
 
 export default function Routes() {
   return (
@@ -14,6 +18,10 @@ export default function Routes() {
         <Route path="/login" exact component={Login} />
         <Route path="/register" exact component={Register} />
         <Route path="/destinations" exact component={Destinations} />
+        <Route path="/homeprofile" exact component={HomeProfile} />
+        <Route path="/contactus" exact component={ContactUs} />
+        <Route path="/profile" exact component={Profile} />
+        <Route path="/changeprofile" exact component={ChangeProfile} />
       </Switch>
     </BrowserRouter>
   );

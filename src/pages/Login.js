@@ -42,7 +42,7 @@ export default function Login() {
                         <Form.Control type="password" placeholder="Senha" />
                     </Form.Group>
                     <ButtonWrapper>
-                        <Button href="/" variant="primary" block type="submit">
+                        <Button href="/homeprofile" variant="primary" block type="submit">
                             Login
                         </Button>
                         <Button href="/register" variant="primary" block  type="submit">

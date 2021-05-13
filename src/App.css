@@ -53,7 +53,10 @@
 
 .rec.rec-arrow {
     background-color: #eeeeee;
-    border:solid 0.2px rgba(173, 173, 173, 0.445)
+    border:solid 0.2px rgba(173, 173, 173, 0.445);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 button.rec.rec-arrow:hover {

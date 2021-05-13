@@ -3,8 +3,6 @@ import styled from 'styled-components'
 
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
-import Dropdown from 'react-bootstrap/Dropdown'
-import DropdownButton from 'react-bootstrap/DropdownButton'
 
 import img from '../../assets/rio-de-janeiro-empe.jpg'
 
@@ -18,11 +16,16 @@ const DestinationCardWrapper = styled.div`
     border: solid 0.5px rgba(173, 173, 173, 0.645);
     justify-self: center;
     margin-bottom: 20px;
+    transition: 0.3s;
+
+    :hover {
+        box-shadow: 5px 5px 11px rgba(33,33,33,.2);
+    }
 `
 
 const ImgWrapper = styled.div`
     width: 250px;
-    max-height: 320px;
+    max-height: 260px;
     overflow: hidden;
 `
 
@@ -41,10 +44,10 @@ const FlightWrapper = styled.div`
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
-    height: 160px;
+    height: 130px;
 
     p {
-        margin-bottom: 10px;
+        margin-bottom: 5px;
     }
 `
 
@@ -57,17 +60,13 @@ class DestinationCard extends React.Component {
                     </ImgWrapper>
 
                     <DescriptionWrapper>
-                        <h3>Rio de Janeiro</h3>
-                        <DropdownButton id="dropdown-basic-button" title="Origem">
-                            <Dropdown.Item href="#/action-1">Aeroporto 1</Dropdown.Item>
-                            <Dropdown.Item href="#/action-2">Aeroporto 2</Dropdown.Item>
-                            <Dropdown.Item href="#/action-3">Aeroporto 3</Dropdown.Item>
-                        </DropdownButton>
+                        <h4>Nome da cidade</h4>
+                        <h5>Aeroporto</h5>
                         <FlightWrapper>
                             <p>A partir de</p>
                             <div className="d-flex">
                                 <p>R$</p>
-                                <h3>469</h3>
+                                <h3>Preço</h3>
                             </div>
                             
                             <Button size="lg" variant="danger">Buscar</Button> 

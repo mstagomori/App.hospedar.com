@@ -11,6 +11,12 @@ const CardWrapper = styled.div`
     border-radius: .25rem;
     border: solid inset 0.5px rgba(173, 173, 173, 0.445);
 
+    transition: 0.3s;
+
+    :hover {
+        box-shadow: 5px 5px 11px rgba(33,33,33,.2);
+    }
+
     h3 {
         margin-bottom: 40px;
     }

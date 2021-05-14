@@ -16,14 +16,14 @@ const FilterWrapper = styled.div`
 
   @media (min-width: 1200px) {
     max-width: 1200px;
-    
+
   }
 `;
 
 export default function Profile() {
   return (
     <div className="main">
-      <NavBarProfile />
+      <NavBarProfile type="Tipo"/>
 
       <div className="filter-container">
         <FilterWrapper>

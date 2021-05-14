@@ -26,7 +26,7 @@ class NavBar extends React.Component {
                     <Navbar bg="primary" variant="dark">
                         <Navbar.Brand href="/">Hospedar</Navbar.Brand>
                         
-                        <Nav className="justify-content-end w-100">
+                        <Nav className={`justify-content-end w-100 ${this.props.loginVisibility}`}>
                             <Button href="/login" variant="outline-light">Iniciar Sessão</Button>
                         </Nav>
                             

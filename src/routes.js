@@ -9,6 +9,7 @@ import HomeProfile from './pages/HomeProfile';
 import ContactUs from './pages/ContactUs';
 import Profile from './pages/Profile';
 import ChangeProfile from './pages/ChangeProfile';
+import AirplaneSeats from './pages/AirplaneSeats';
 
 export default function Routes() {
   return (
@@ -22,6 +23,7 @@ export default function Routes() {
         <Route path="/contactus" exact component={ContactUs} />
         <Route path="/profile" exact component={Profile} />
         <Route path="/changeprofile" exact component={ChangeProfile} />
+        <Route path="/airplane" exact component={AirplaneSeats} />
       </Switch>
     </BrowserRouter>
   );

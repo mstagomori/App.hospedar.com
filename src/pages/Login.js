@@ -3,6 +3,17 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import styled from "styled-components";
 
+import NavBar from '../Component/NavBar'
+
+const Container = styled.div`
+    width: 100%;
+    height: 100vh;
+    background-color: #eee;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+`
+
 const LoginWrapper = styled.div`
     background-color: #fff;
     width: 350px;
@@ -26,8 +37,9 @@ const ButtonWrapper = styled.div`
 
 export default function Login() {
     return (
-        <>
-            <LoginWrapper>
+        <Container>
+            <NavBar loginVisibility="invisible"/>
+            <LoginWrapper>  
                 <Form>
                     <Form.Group controlId="formBasicEmail">
                         <Form.Label>Email</Form.Label>
@@ -54,6 +66,6 @@ export default function Login() {
                     </ButtonWrapper>
                 </Form>
             </LoginWrapper>
-        </>
+        </Container>
     )
 }

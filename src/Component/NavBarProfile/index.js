@@ -24,7 +24,7 @@ class NavBarProfile extends React.Component {
             <Header>
                 <NavWrapper>
                     <Navbar bg="primary" variant="dark">
-                        <Navbar.Brand href="/homeprofile">Hospedar</Navbar.Brand>
+                        <Navbar.Brand href="/homeprofile">{this.props.type}</Navbar.Brand>
                         
                         <Nav className="justify-content-end w-100">
                             <Button href="/profile" variant="outline-light">Meu perfil</Button>

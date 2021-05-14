@@ -1,7 +1,18 @@
-import React from 'react';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import styled from "styled-components";
+import React from 'react'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+import styled from "styled-components"
+
+import NavBar from '../Component/NavBar'
+
+const Container = styled.div`
+    width: 100%;
+    height: 100vh;
+    background-color: #eee;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+`
 
 const RegisterWrapper = styled.div`
     background-color: #fff;
@@ -25,7 +36,8 @@ const ButtonWrapper = styled.div`
 
 export default function Login() {
     return (
-        <>
+        <Container>
+            <NavBar loginVisibility="invisible"/>
             <RegisterWrapper>
                 <Form>
                     <Form.Group controlId="formBasicEmail">
@@ -66,6 +78,6 @@ export default function Login() {
                     </ButtonWrapper>
                 </Form>
             </RegisterWrapper>
-        </>
+        </Container>
     )
 }

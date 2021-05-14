@@ -22,7 +22,7 @@ const FilterWrapper = styled.div`
 export default function Profile() {
     return (
         <div className="main">
-            <NavBarProfile type="Tipo"/>
+            <NavBarProfile/>
                 <div className="filter-container">
                 <FilterWrapper>
                     <h2>Minha Conta</h2>

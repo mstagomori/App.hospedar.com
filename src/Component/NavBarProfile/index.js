@@ -26,12 +26,12 @@ class NavBarProfile extends React.Component {
                     <Navbar bg="primary" variant="dark">
                         <Navbar.Brand href="/homeprofile">Hospedar</Navbar.Brand>
                         
-                        <Nav className="justify-content-end w-100">
+                        <Nav className="justify-content-end w-100 mr-2">
                             <Button href="/profile" variant="outline-light">Meu perfil</Button>
                         </Nav>
 
-                        <Nav className="justify-content-end">
-                            <Button href="/contactus" variant="outline-light">Fale Conosco</Button>
+                        <Nav className="justify-content-end ml-2">
+                            <Button href="/contactus" variant="outline-light">Ajuda</Button>
                         </Nav>
                             
                     </Navbar>

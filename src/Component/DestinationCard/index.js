@@ -69,7 +69,7 @@ class DestinationCard extends React.Component {
                                 <h3>Preço</h3>
                             </div>
                             
-                            <Button size="lg" variant="danger">Buscar</Button> 
+                            <Button  href="\airplane" size="lg" variant="danger">Buscar</Button> 
                         </FlightWrapper>
                     </DescriptionWrapper>
                     

@@ -3,14 +3,6 @@ import NavBarProfile from '../Component/NavBarProfile'
 import HomeCard from '../Component/HomeCard'
 import styled from 'styled-components'
 
-const Header = styled.div`
-    width: 100%;
-    background-color: #007bff;
-
-    @media (min-width: 1400px) {
-        padding-left: 250px;
-    }
-`
 
 const FilterWrapper = styled.div`
     width: 100%;
@@ -29,13 +21,21 @@ const FilterWrapper = styled.div`
     }
 `
 
+const onSubmit = async (values) => {
+    // await sleep(300);
+    // window.alert(JSON.stringify(values, 0, 2));
+    window.alert("Obrigado por nos contactar. Entreremos em contato em breve!")
+    window.location='/homeProfile';
+  };
+
+
 export default function ContactUs () {
 
     return (
         <div className="main">
-            <Header>
-                <NavBarProfile/>
-            </Header>
+
+            <NavBarProfile/>
+
             
             <div className="filter-container">
                 <FilterWrapper> 
@@ -56,6 +56,7 @@ export default function ContactUs () {
                         <option>Alterar meus dados cadastrais</option>
                         <option>Troca de voos</option>
                         <option>Cancelamento de voos</option>
+                        <option>Outros</option>
                         </select>
                     </div>
                     <div class="form-row">
@@ -79,21 +80,21 @@ export default function ContactUs () {
                 <div class="form-row">
                     <div class="form-group col-md-6">
                     <label for="inputCity">Cidade</label>
-                    <input type="text" class="form-control" id="city" placeholder="Por favor, preencha essa sessão." required/>
+                    <input type="text" class="form-control" id="city" placeholder="" required/>
                     </div>
                     <div class="form-group col-md-4">
                     <label for="inputState">Estado</label>
-                    <input type="text" class="form-control" id="state" placeholder="Por favor, preencha essa sessão." required/>
+                    <input type="text" class="form-control" id="state" placeholder="" required/>
                     </div>
                     <div class="form-group col-md-2">
                     <label for="inputZip">CEP</label>
-                    <input type="text" class="form-control" id="zip" placeholder="Por favor, preencha essa sessão." required/>
+                    <input type="text" class="form-control" id="zip" placeholder="" required/>
                     </div>
                 </div>
 
                     
                     <div class="w-100 d-flex justify-content-end">
-                        <button onClick={() => alert("Muito obrigado por nos contactar. Entraremos em contato em breve.")}>
+                        <button onClick={() => onSubmit()}>
                             Confirmar
                         </button>
                     </div>

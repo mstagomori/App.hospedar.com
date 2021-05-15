@@ -4,8 +4,6 @@ import styled from 'styled-components'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 
-import img from '../../assets/rio-de-janeiro-empe.jpg'
-
 const DestinationCardWrapper = styled.div`
     display: flex;
     flex-direction: row;
@@ -56,12 +54,12 @@ class DestinationCard extends React.Component {
         return(
                 <DestinationCardWrapper>
                     <ImgWrapper>
-                        <Card.Img variant="bottom" src={img} />
+                        <Card.Img variant="bottom" src={this.props.logo} />
                     </ImgWrapper>
 
                     <DescriptionWrapper>
                         <h4>Nome da cidade</h4>
-                        <h5>Aeroporto</h5>
+                        <h5>{this.props.name}</h5>
                         <FlightWrapper>
                             <p>A partir de</p>
                             <div className="d-flex">
@@ -69,7 +67,7 @@ class DestinationCard extends React.Component {
                                 <h3>Preço</h3>
                             </div>
                             
-                            <Button  href="\airplane" size="lg" variant="danger">Buscar</Button> 
+                            <Button  href="\airplane" size="lg" variant="danger">Selecionar</Button> 
                         </FlightWrapper>
                     </DescriptionWrapper>
                     

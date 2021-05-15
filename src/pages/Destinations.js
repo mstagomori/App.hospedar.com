@@ -3,11 +3,13 @@ import styled from "styled-components"
 
 import NavBar from '../Component/NavBar'
 import DestinationCard from '../Component/DestinationCard'
+import {importedAirlines} from '../Data/airlines'
 
 const Container = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
+    min-height: 100vh;
 `
 
 const DestinationsContainer = styled.div`
@@ -22,10 +24,7 @@ export default function Destinations() {
         <Container>
             <NavBar/>
             <DestinationsContainer>
-                <DestinationCard/>
-                <DestinationCard/>
-                <DestinationCard/>
-                <DestinationCard/>
+                {importedAirlines.map((airline) => <DestinationCard logo={airline.logo} name={airline.Nome}/>)}
             </DestinationsContainer>
         </Container>
     )

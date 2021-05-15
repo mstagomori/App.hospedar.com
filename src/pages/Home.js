@@ -37,7 +37,6 @@ export default function Home () {
 		let statesWithParcialString = [];
 		importedStates.forEach(x=> { if (x["Nome"].toLowerCase().includes(parcialString))  statesWithParcialString.push(x) } )
 		setStates(statesWithParcialString)
-		console.log(states)
 	}
 
 	return (
@@ -53,8 +52,8 @@ export default function Home () {
 		<label for="inputPassword3" >Origem</label>
 		<input type="text" class="form-control" id="inputPassword4" onChange={event => guessState(event.target.value.toLowerCase())} list="cities"/>
 		<datalist id="cities">
-            {states.map( (item) =>
-            <option value={item.Nome} /> )}
+            {states.map( (item, key) =>
+            <option key={key} value={item.Nome} /> )}
         </datalist>
         </div>
 		<div class="form-group col-md-6">

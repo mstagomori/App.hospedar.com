@@ -45,6 +45,8 @@ class aviao {
   }
 }
 
+
+
 function iniciaAssentos(aviao) {
   let alfabeto = [
     "A",
@@ -146,21 +148,35 @@ class AirplaneSeats extends Component {
     );
   };
 
+
+
   render() {
+
+
+
+
     const myPlane = new aviao(64, 2, 4, 2);
     const rows = iniciaAssentos(myPlane);
     const seatCost = 100.0;
-    const seatChoose = 5;
-    let seat = Math.round(seatChoose * 100) / 100;
 
-    const { loading } = this.state;
+    const { loading } = this.state; 
+    let x = this.props;
+    let y = x.location;
+    let jj = 5;
+    if (y != undefined){ // FOI????? CARALHOO FOI????
+      let z = y.state; //kkkkkk to tentando roubar pra ver se vai
+      console.log(z);//EU ACHO
+      jj = z;
+    }
+    const seatChoose = parseInt(jj);
+    let seat = Math.round(seatChoose * 100) / 100;
     return (
       <div className="main">
         <NavBarProfile />    
         <div className="filter-container">
         <FilterWrapper>
-
-          <h2>Escolha seus {seatChoose} assentos:<br></br>  </h2>
+          <h2> Escolha seus {jj} assentos: <br></br></h2>
+          {/* <h2>Escolha seus {(y != undefined)?y.state:} assentos:<br></br>  </h2> */}
 
             <SeatPicker
               addSeatCallback={this.addSeatCallback}

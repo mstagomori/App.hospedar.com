@@ -48,7 +48,6 @@ export default function Login() {
                         Nós não compartilharemos seu email com ninguém.
                         </Form.Text>
                     </Form.Group>
-
                     <Form.Group controlId="formBasicPassword">
                         <Form.Label>Senha</Form.Label>
                         <Form.Control type="password" placeholder="Senha" />

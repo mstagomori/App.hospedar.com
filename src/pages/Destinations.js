@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from "styled-components"
 
-import NavBar from '../Component/NavBar'
+import NavBarProfile from '../Component/NavBarProfile'
 import DestinationCard from '../Component/DestinationCard'
 
 const Container = styled.div`
@@ -20,7 +20,7 @@ const DestinationsContainer = styled.div`
 export default function Destinations() {
     return(
         <Container>
-            <NavBar/>
+            <NavBarProfile/>
             <DestinationsContainer>
                 <DestinationCard/>
                 <DestinationCard/>

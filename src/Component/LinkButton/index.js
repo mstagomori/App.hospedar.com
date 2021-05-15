@@ -28,7 +28,11 @@ class LinkButton extends React.Component {
     render() {
         return(
             <LinkWrapper >
-                <Link to={this.props.href}>{this.props.name}</Link>
+                <Link type="submit" to={{
+                    pathname: this.props.href,
+                    state: this.fields
+                }}
+                >{this.props.name}</Link>
             </LinkWrapper>
         )
     }

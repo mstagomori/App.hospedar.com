@@ -47,3 +47,5 @@ class statesList extends React.Component{
 }
 
 let classe = new statesList();
+
+export default classe;

@@ -3,7 +3,7 @@ import Carousel from 'react-elastic-carousel'
 import NavBarProfile from '../Component/NavBarProfile'
 import HomeCard from '../Component/HomeCard'
 import styled from 'styled-components'
-import UserForm from '../Component/StatesList'
+import classe from '../Component/StatesList'
 
 
 const FilterWrapper = styled.div`
@@ -27,14 +27,21 @@ const FilterWrapper = styled.div`
 
 export default function Home(){
 
-    const breakPoints = [
-        { width: 1, itemsToShow: 1 },
-        { width: 550, itemsToShow: 2, itemsToScroll: 1 },
-        { width: 768, itemsToShow: 3 },
-        { width: 1200, itemsToShow: 4 }
-    ];
+	const [states, setStates] = useState([]);
+	const [items, setItems] = useState([1, 2, 3, 4, 5, 6, 7, 8]);
 
-    const [items, setItems] = useState([1, 2, 3, 4, 5, 6, 7, 8]);
+	const breakPoints = [
+		{ width: 1, itemtsToShow: 1 },
+		{ width: 550, itemsToShow: 2, itemsToScroll: 1 },
+		{ width: 768, itemsToShow: 3 },
+		{ width: 1200, itemsToShow: 4 }
+	];
+
+    function guessState(parcialString){
+		let statesWithParcialString = [];
+		importedStates.forEach(x=> { if (x["Nome"].toLowerCase().includes(parcialString))  statesWithParcialString.push(x) } )
+		setStates(statesWithParcialString)
+	}
 
     return (
         <div className="main">

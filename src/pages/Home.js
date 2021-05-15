@@ -60,17 +60,17 @@ export default function Home () {
 		<label for="inputPassword4">Destino</label>
 		<input type="text" class="form-control" id="inputPassword4" onChange={event => guessState(event.target.value.toLowerCase())} list="cities"/>
 		</div>
-		<div class="form-group col-md-6">
+		<div class="form-group col-md-4">
 		<label for="inputPassword4">Data Ida</label>
 		<input type="date" class="form-control" id="inputPassword4"/>
 		</div>
 
-		<div class="form-group col-md-6">
+		<div class="form-group col-md-4">
 		<label for="inputPassword4">Data Volta</label>
 		<input type="date" class="form-control" id="inputPassword4"/>
 		</div>
 
-		<div class="form-group col-md-6">
+		<div class="form-group col-md-4">
 		<label for="inputPassword4">Número de passageiros</label>
 		<select id="inputPassword4" class="form-control">
 		<option selected>Selecione</option>

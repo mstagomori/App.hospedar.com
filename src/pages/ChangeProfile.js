@@ -60,23 +60,32 @@ export default function ChangeProfile() {
                             <h2>Cartão de Crédito</h2>
                             <form>
                             <div class="form-row">
-                            <div class="form-group col-md-6">
-                            <label for="inputCity">Cartão</label>
-                            <input type="text" class="form-control" id="inputCity"/>
+                                <div class="form-group col-md-6">
+                                <label for="inputEmail4">Número do Cartão</label>
+                                <input type="text" class="form-control" id="name" placeholder=""></input>
+                                
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                <label for="inputEmail4">Nome no Cartão</label>
+                                <input type="text" class="form-control" id="email" placeholder=""></input>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                <label for="inputEmail4">Data de Expiração</label>
+                                <input type="text" class="form-control" id="tel" placeholder=""></input>
+                                </div>
+                                
+                                <div class="form-group col-md-6">
+                                <label for="inputEmail4">Código de Segurança (CVV)</label>
+                                <input type="text" class="form-control" id="date" placeholder=""></input>
+                                </div>
                             </div>
-                            <div class="form-group col-md-4">
-                            <label for="inputState">Data de Validade</label>
-                            <input type="text" class="form-control" id="inputZip"/>
-                            </div>
-                            <div class="form-group col-md-2">
-                            <label for="inputZip">CVV</label>
-                            <input type="text" class="form-control" id="inputZip"/>
-                            </div>
-                            </div>
+
                             <div class="w-100 d-flex justify-content-end">
-                                <a href="/profile" type="submit" class="btn btn-danger">Confirmar</a>
+                            <a href="/profile" type="submit" class="btn btn-danger">Confirmar</a>
                             </div>
-                        
+
                         </form>
                 </FilterWrapper>
             </div>

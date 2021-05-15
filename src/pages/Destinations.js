@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from "styled-components"
 
-import NavBarProfile from '../Component/NavBarProfile'
+import NavBar from '../Component/NavBar'
 import DestinationCard from '../Component/DestinationCard'
 import {importedAirlines} from '../Data/airlines'
 
@@ -22,7 +22,7 @@ const DestinationsContainer = styled.div`
 export default function Destinations() {
     return(
         <Container>
-            <NavBarProfile/>
+            <NavBar/>
             <DestinationsContainer>
                 {importedAirlines.map((airline) => <DestinationCard logo={airline.logo} name={airline.Nome}/>)}
             </DestinationsContainer>

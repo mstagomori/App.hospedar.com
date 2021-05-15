@@ -1,9 +1,11 @@
-import React from 'react';
+import React from 'react'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import cardImg from '../../assets/rio-de-janeiro.png'
-import styled from "styled-components";
+import styled from "styled-components"
+
+import CardButton from '../CardButton'
 
 const CardWrapper = styled.div`
     width: 18rem;
@@ -34,12 +36,9 @@ class HomeCard extends React.Component {
                 <Card>
                     <Card.Img variant="top" src={cardImg} />
                     <Card.Body>
-                        <h6>HOSPEDAGENS</h6>
-                        <h3>Rio de Janeiro</h3>
+                        <h3>{this.props.city}</h3>
                         <ButtonWrapper>
-                            <Button variant="primary">
-                                R$ 469
-                            </Button>
+                            <CardButton href="#" name="Price"/>
                         </ButtonWrapper>
                         
                     </Card.Body>

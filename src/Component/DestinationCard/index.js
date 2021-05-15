@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components'
 
 import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
+import LinkButton from '../LinkButton'
 
 const DestinationCardWrapper = styled.div`
     display: flex;
@@ -61,13 +61,12 @@ class DestinationCard extends React.Component {
                         <h4>Nome da cidade</h4>
                         <h5>{this.props.name}</h5>
                         <FlightWrapper>
-                            <p>A partir de</p>
                             <div className="d-flex">
                                 <p>R$</p>
-                                <h3>Preço</h3>
+                                <h4>Price</h4>
                             </div>
                             
-                            <Button  href="\airplane" size="lg" variant="danger">Selecionar</Button> 
+                            <LinkButton href="/destinations/airplane" name="Selecionar"/> 
                         </FlightWrapper>
                     </DescriptionWrapper>
                     

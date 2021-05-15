@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import {importedStates} from './../Data/states.js';
 import Carousel from 'react-elastic-carousel'
-import NavBarProfile from '../Component/NavBarProfile'
+import NavBar from '../Component/NavBar'
 import HomeCard from '../Component/HomeCard'
+import LinkButton from '../Component/LinkButton'
 import styled from 'styled-components'
 
 const FilterWrapper = styled.div`
@@ -41,7 +42,7 @@ export default function Home () {
 
 	return (
 		<div className="main">
-		<NavBarProfile/>
+		<NavBar/>
 
 		<div className="filter-container">
 		<FilterWrapper>
@@ -88,7 +89,7 @@ export default function Home () {
 
 		</div>
 		<div class="w-100 d-flex justify-content-end">
-		<a href="/destinations" type="submit" class="btn btn-danger">Buscar</a>
+            <LinkButton href="/destinations" name="Buscar"/>
 		</div>
 
 		</form>
@@ -105,7 +106,7 @@ export default function Home () {
 		<div className="carousel-container">
 		<Carousel breakPoints={breakPoints}>
 		{items.map((item) => (
-			<HomeCard key={item}>{item}</HomeCard>
+			<HomeCard key={item} city="Estado">{item}</HomeCard>
 		))}
 		</Carousel>
 		</div>

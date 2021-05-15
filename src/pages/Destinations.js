@@ -27,7 +27,7 @@ export default function Destinations(props) {
         <Container>
             <NavBar/>
             <DestinationsContainer>
-                {importedAirlines.map((airline) => <DestinationCard key={airline.ID} logo={airline.logo} name={origem}/>)}
+                {importedAirlines.map((airline) => <DestinationCard key={airline.ID} logo={airline.logo} name={destino} origem={origem} state={numPassageiros}/>)}
             </DestinationsContainer>
         </Container>
     )

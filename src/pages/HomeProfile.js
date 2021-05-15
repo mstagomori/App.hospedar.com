@@ -57,6 +57,7 @@ export default function Home (props) {
           ...prevState,
           [name]: value
         }));
+        console.log(fields);
       };
 
 	return (
@@ -109,13 +110,13 @@ export default function Home (props) {
 		</div>
 		<div class="w-100 d-flex justify-content-end">
         <Link
-            className="btn btn-primary"
+            className="btn btn-danger"
             to={{
                 pathname: "/destinations",
-                fields
+                state: fields
             }}
         >
-        Register
+        Buscar
         </Link>
 		</div>
 

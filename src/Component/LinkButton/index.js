@@ -26,11 +26,12 @@ const LinkWrapper = styled.div`
 
 class LinkButton extends React.Component {
     render() {
+        console.log(this.props)
         return(
             <LinkWrapper >
                 <Link type="submit" to={{
                     pathname: this.props.href,
-                    state: this.fields
+                    state: this.props.fields
                 }}
                 >{this.props.name}</Link>
             </LinkWrapper>

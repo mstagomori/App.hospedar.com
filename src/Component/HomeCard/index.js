@@ -32,7 +32,6 @@ const ButtonWrapper = styled.div`
 const ImgWrapper = styled.div`
     height: 150px;
     overflow: hidden;
-
 `
 
 class HomeCard extends React.Component {

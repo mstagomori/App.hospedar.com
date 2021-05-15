@@ -58,15 +58,15 @@ class DestinationCard extends React.Component {
                     </ImgWrapper>
 
                     <DescriptionWrapper>
-                        <h4>Nome da cidade</h4>
-                        <h5>{this.props.name}</h5>
+                        <h4>{this.props.name}</h4>
+                        <h5>De: {this.props.origem}</h5>
                         <FlightWrapper>
                             <div className="d-flex">
                                 <p>R$</p>
                                 <h4>Price</h4>
                             </div>
                             
-                            <LinkButton href="/destinations/airplane" name="Selecionar"/> 
+                            <LinkButton href="/destinations/airplane" name="Selecionar" fields={this.props.state}/> 
                         </FlightWrapper>
                     </DescriptionWrapper>
                     

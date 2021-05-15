@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import NavBarProfile from '../Component/NavBarProfile'
-import HomeCard from '../Component/HomeCard'
+import NavBar from '../Component/NavBar'
 import styled from 'styled-components'
 
 
@@ -34,7 +33,7 @@ export default function ContactUs () {
     return (
         <div className="main">
 
-            <NavBarProfile/>
+        <NavBar contactusVisibility="invisible"/>
 
             
             <div className="filter-container">

@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
-import NavBarProfile from '../Component/NavBarProfile'
+import NavBar from '../Component/NavBar'
 import styled from 'styled-components'
+
+import LinkButton from '../Component/LinkButton'
 
 const FilterWrapper = styled.div`
     width: 100%;
@@ -22,7 +24,7 @@ const FilterWrapper = styled.div`
 export default function Profile() {
     return (
         <div className="main">
-            <NavBarProfile/>
+            <NavBar profileVisibility="invisible"/>
                 <div className="filter-container">
                 <FilterWrapper>
                     <h2>Minha Conta</h2>
@@ -60,7 +62,7 @@ export default function Profile() {
                                 
                             </div>
                             <div class="w-100 d-flex justify-content-end">
-                                <a href="/changeprofile" type="submit" class="btn btn-danger">Editar</a>
+                                <LinkButton href="/changeprofile" name="Editar"/>
                             </div>
                         
                         </form>
@@ -89,7 +91,7 @@ export default function Profile() {
                                 
                             </div>
                             <div class="w-100 d-flex justify-content-end">
-                                <a href="/airplane" type="submit" class="btn btn-danger">Alterar minha viagem</a>
+                                <LinkButton href="/airplane" name="Alterar Minha Viagem"/>
                             </div>
                         
                         </form>

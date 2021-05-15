@@ -18,7 +18,7 @@ export default function Routes() {
         <Route path="/contactus" exact component={ContactUs} />
         <Route path="/profile" exact component={Profile} />
         <Route path="/changeprofile" exact component={ChangeProfile} />
-        <Route path="/airplane" exact component={AirplaneSeats} />
+        <Route path="/destinations/airplane" exact component={AirplaneSeats} />
         <Route path="/payment" exact component={CreditCard} />
       </Switch>
     </BrowserRouter>

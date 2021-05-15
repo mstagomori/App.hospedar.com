@@ -19,12 +19,15 @@ const DestinationsContainer = styled.div`
     align-items:center;
 `
 
-export default function Destinations() {
+export default function Destinations(props) {
+
+    const { origem, destino, dataIda, dataVolta, numPassageiros } = (props.location && props.location.state) || {};
+
     return(
         <Container>
             <NavBar/>
             <DestinationsContainer>
-                {importedAirlines.map((airline) => <DestinationCard logo={airline.logo} name={airline.Nome}/>)}
+                {importedAirlines.map((airline) => <DestinationCard key={airline.ID} logo={airline.logo} name={origem}/>)}
             </DestinationsContainer>
         </Container>
     )

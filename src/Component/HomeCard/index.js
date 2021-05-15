@@ -1,9 +1,8 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import cardImg from '../../assets/rio-de-janeiro.png'
 import styled from "styled-components"
+import Image from 'react-bootstrap/Image'
 
 import CardButton from '../CardButton'
 
@@ -12,8 +11,9 @@ const CardWrapper = styled.div`
     margin-right: 15px;
     border-radius: .25rem;
     border: solid inset 0.5px rgba(173, 173, 173, 0.445);
-
     transition: 0.3s;
+    display: flex;
+    flex-direction: column;
 
     :hover {
         box-shadow: 5px 5px 11px rgba(33,33,33,.2);
@@ -29,12 +29,20 @@ const ButtonWrapper = styled.div`
     justify-content: flex-end;
 `
 
+const ImgWrapper = styled.div`
+    height: 150px;
+    overflow: hidden;
+
+`
+
 class HomeCard extends React.Component {
     render() {
         return(
             <CardWrapper>
                 <Card>
-                    <Card.Img variant="top" src={cardImg} />
+                    <ImgWrapper>
+                        <Image src={this.props.img}/>
+                    </ImgWrapper>
                     <Card.Body>
                         <h3>{this.props.city}</h3>
                         <ButtonWrapper>

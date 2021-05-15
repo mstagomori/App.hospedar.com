@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import {importedStates} from './../Data/states.js';
+import {homeCardStates} from './../Data/homeCardStates';
 import Carousel from 'react-elastic-carousel'
 import NavBar from '../Component/NavBar'
 import HomeCard from '../Component/HomeCard'
 import LinkButton from '../Component/LinkButton'
 import styled from 'styled-components'
+import {Link} from 'react-router-dom'
 
 const FilterWrapper = styled.div`
 		width: 100%;
@@ -23,10 +25,17 @@ const FilterWrapper = styled.div`
 		}
 `
 
-export default function Home () {
+export default function Home (props) {
 
 	const [states, setStates] = useState([]);
-	const [items, setItems] = useState([1, 2, 3, 4, 5, 6, 7, 8]);
+	const [items, setItems] = useState(homeCardStates);
+    const [fields, setFields] = useState({
+        origem: "",
+        destino: "",
+        dataIda: "",
+        dataVolta: "",
+        numPassageiros: ""
+    })
 
 	const breakPoints = [
 		{ width: 1, itemtsToShow: 1 },
@@ -34,11 +43,21 @@ export default function Home () {
 		{ width: 768, itemsToShow: 3 },
 		{ width: 1200, itemsToShow: 4 }
 	];
+
 	function guessState(parcialString){
 		let statesWithParcialString = [];
 		importedStates.forEach(x=> { if (x["Nome"].toLowerCase().includes(parcialString))  statesWithParcialString.push(x) } )
 		setStates(statesWithParcialString)
 	}
+
+    const handleInputChange = event => {
+        guessState(event.target.value.toLowerCase())
+        const { name, value } = event.target;
+        setFields(prevState => ({
+          ...prevState,
+          [name]: value
+        }));
+      };
 
 	return (
 		<div className="main">
@@ -51,7 +70,7 @@ export default function Home () {
 		<div class="form-row">
 		<div class="form-group col-md-6">
 		<label for="inputPassword3" >Origem</label>
-		<input type="text" class="form-control" id="inputPassword4" onChange={event => guessState(event.target.value.toLowerCase())} list="cities"/>
+		<input type="text" class="form-control" id="inputPassword4" onChange={handleInputChange} list="cities" name="origem"/>
 		<datalist id="cities">
             {states.map( (item, key) =>
             <option key={key} value={item.Nome} /> )}
@@ -59,21 +78,21 @@ export default function Home () {
         </div>
 		<div class="form-group col-md-6">
 		<label for="inputPassword4">Destino</label>
-		<input type="text" class="form-control" id="inputPassword4" onChange={event => guessState(event.target.value.toLowerCase())} list="cities"/>
+		<input type="text" class="form-control" id="inputPassword4" onChange={handleInputChange} list="cities" name="destino"/>
 		</div>
 		<div class="form-group col-md-4">
 		<label for="inputPassword4">Data Ida</label>
-		<input type="date" class="form-control" id="inputPassword4"/>
+		<input type="date" class="form-control" id="inputPassword4" onChange={handleInputChange} name="dataIda"/>
 		</div>
 
 		<div class="form-group col-md-4">
 		<label for="inputPassword4">Data Volta</label>
-		<input type="date" class="form-control" id="inputPassword4"/>
+		<input type="date" class="form-control" id="inputPassword4" onChange={handleInputChange} name="dataVolta"/>
 		</div>
 
 		<div class="form-group col-md-4">
 		<label for="inputPassword4">Número de passageiros</label>
-		<select id="inputPassword4" class="form-control">
+		<select id="inputPassword4" class="form-control" onChange={handleInputChange} name="numPassageiros">
 		<option selected>Selecione</option>
 		<option>1</option>
 		<option>2</option>
@@ -89,7 +108,15 @@ export default function Home () {
 
 		</div>
 		<div class="w-100 d-flex justify-content-end">
-            <LinkButton href="/destinations" name="Buscar"/>
+        <Link
+            className="btn btn-primary"
+            to={{
+                pathname: "/destinations",
+                fields
+            }}
+        >
+        Register
+        </Link>
 		</div>
 
 		</form>
@@ -106,7 +133,7 @@ export default function Home () {
 		<div className="carousel-container">
 		<Carousel breakPoints={breakPoints}>
 		{items.map((item) => (
-			<HomeCard key={item} city="Estado">{item}</HomeCard>
+			<HomeCard key={item.ID} city={item.Nome} img={item.img}></HomeCard>
 		))}
 		</Carousel>
 		</div>

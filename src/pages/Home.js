@@ -51,11 +51,15 @@ export default function Home () {
 		<div class="form-row">
 		<div class="form-group col-md-6">
 		<label for="inputPassword3" >Origem</label>
-		<input type="text" class="form-control" id="inputPassword4" onChange={event => guessState(event.target.value)}/>
-		</div>
+		<input type="text" class="form-control" id="inputPassword4" onChange={event => guessState(event.target.value.toLowerCase())} list="cities"/>
+		<datalist id="cities">
+            {states.map( (item) =>
+            <option value={item.Nome} /> )}
+        </datalist>
+        </div>
 		<div class="form-group col-md-6">
 		<label for="inputPassword4">Destino</label>
-		<input type="text" class="form-control" id="inputPassword4"/>
+		<input type="text" class="form-control" id="inputPassword4" onChange={event => guessState(event.target.value.toLowerCase())} list="cities"/>
 		</div>
 		<div class="form-group col-md-6">
 		<label for="inputPassword4">Data Ida</label>

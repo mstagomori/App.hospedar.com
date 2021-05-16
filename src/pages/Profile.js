@@ -91,7 +91,7 @@ export default function Profile() {
                                 
                             </div>
                             <div class="w-100 d-flex justify-content-end">
-                                <LinkButton href="/airplane" name="Alterar Minha Viagem"/>
+                                <LinkButton href="/" name="Alterar Minha Viagem"/>
                             </div>
                         
                         </form>

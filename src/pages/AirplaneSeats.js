@@ -128,7 +128,7 @@ class AirplaneSeats extends Component {
         loading: false,
       },
       async () => {
-        await new Promise((resolve) => setTimeout(resolve, 1500));
+        await new Promise((resolve) => setTimeout(resolve, 50));
         // const newTooltip = `tooltip for id-${id} added by callback`;
         addCb(row, number, id, null); //newTooltip);
         this.setState({ loading: false });
@@ -142,7 +142,7 @@ class AirplaneSeats extends Component {
         loading: false, // talvez false
       },
       async () => {
-        await new Promise((resolve) => setTimeout(resolve, 1500));
+        await new Promise((resolve) => setTimeout(resolve, 50));
         console.log(`Removed seat ${number}, row ${row}, id ${id}`);
         // A value of null will reset the tooltip to the original while '' will hide the tooltip
         const newTooltip = ["A", "B", "C"].includes(row) ? null : "";

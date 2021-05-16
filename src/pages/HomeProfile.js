@@ -53,8 +53,9 @@ export default function Home (props) {
 	useEffect(() => {
 	axios.get(GET_CARD_FLIGHTS)
 		.then(function (response) {
-		setFlights(x=>({ ...x ,availableFlights:[response.data]}), flights.availableFlights);
-		console.log(flights);
+			if(!flights.availableFlights.length > 0 ){
+				setFlights(x=>({ ...x ,availableFlights:[response.data]}), [flights.availableFlights]);
+			}
 		})
 		.catch(function (error) {
 		console.log(error);

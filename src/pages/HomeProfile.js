@@ -61,6 +61,55 @@ export default function Home (props) {
 		})
 	});
 
+	// Validar opções selecionadas
+	const estados = [
+        "Acre","Alagoas","Amazonas","Amapá","Bahia","Ceará","Distrito Federal","Espírito Santo","Goiás","Maranhão","Minas Gerais",
+        "Mato Grosso do Sul","Mato Grosso","Pará","Paraíba","Pernambuco","Piauí","Paraná","Rio de Janeiro","Rio Grande do Norte","Rondônia",
+        "Roraima","Rio Grande do Sul","Santa Catarina","Sergipe","São Paulo","Tocantins"
+    ];
+
+	function handleValidation(){
+        let errorsInput = {};
+        let formIsValid = true;
+        
+        // Origem
+        if (!estados.includes(fields.origem)){
+            formIsValid = false;
+        }
+        // Destino
+        if ((!estados.includes(fields.destino)) || (fields.origem == fields.destino)){
+            formIsValid = false;
+        }
+        // Data Ida
+        if (!fields.dataIda){
+            formIsValid = false;
+        }
+        // Data Volta
+        if ((!fields.dataVolta)){
+            formIsValid = false;
+        }
+        // Numero de Assentos
+        if ((!fields.seats) || (fields.seats == "Selecione") ){
+            formIsValid = false;
+
+        }
+
+        return formIsValid;
+    
+        
+    }
+
+    function contactSubmit(e){
+        let valid = handleValidation();
+        if(valid){
+           //alert("Form submitted");
+           handleCookies();
+        }else{
+            e.preventDefault();
+            alert("Preencha todos os dados corretamente.")
+
+        }
+    }
 
 	const breakPoints = [
 		{ width: 1, itemtsToShow: 1 },
@@ -140,7 +189,7 @@ export default function Home (props) {
                 pathname: "/destinations",
                 state: {fields: fields}
             }}
-            onClick={handleCookies}
+            onClick={event => contactSubmit(event)}
         >
         Buscar
         </Link>

@@ -7,6 +7,8 @@ import HomeCard from '../Component/HomeCard'
 import LinkButton from '../Component/LinkButton'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
+import { useCookies } from 'react-cookie';
+
 
 const FilterWrapper = styled.div`
 		width: 100%;
@@ -36,6 +38,11 @@ export default function Home (props) {
         dataVolta: "",
         numPassageiros: ""
     })
+	const [cookies, setCookie] = useCookies(['seats']);
+
+	function onChange(event) {
+		setCookie('seats', event.target.value, { path: '/' });
+	  }
 
 	const breakPoints = [
 		{ width: 1, itemtsToShow: 1 },
@@ -93,7 +100,7 @@ export default function Home (props) {
 
 		<div class="form-group col-md-4">
 		<label for="inputPassword4">Número de passageiros</label>
-		<select id="inputPassword4" class="form-control" onChange={handleInputChange} name="numPassageiros">
+		<select id="inputPassword4" class="form-control" onChange={onChange} name="numPassageiros">
 		<option selected>Selecione</option>
 		<option>1</option>
 		<option>2</option>
@@ -113,7 +120,7 @@ export default function Home (props) {
             className="btn btn-danger"
             to={{
                 pathname: "/destinations",
-                state: fields
+                state: {fields: fields}
             }}
         >
         Buscar

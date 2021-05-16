@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import SeatPicker from "react-seat-picker";
 import NavBarProfile from "../Component/NavBarProfile";
 import styled from "styled-components";
+import { withCookies, Cookies } from 'react-cookie';
 
 
 const FilterWrapper = styled.div`
@@ -111,9 +112,15 @@ function iniciaAssentos(aviao) {
 }
 
 class AirplaneSeats extends Component {
-  state = {
-    loading: false,
-  };
+  constructor(props){
+    super(props);
+    const {cookies} = props
+    this.state = {
+      loading: false,
+      seats: cookies.get('seats')
+    };
+
+  }
 
   addSeatCallback = ({ row, number, id }, addCb) => {
     this.setState(
@@ -122,7 +129,6 @@ class AirplaneSeats extends Component {
       },
       async () => {
         await new Promise((resolve) => setTimeout(resolve, 1500));
-        console.log(`Added seat ${number}, row ${row}, id ${id}`);
         // const newTooltip = `tooltip for id-${id} added by callback`;
         addCb(row, number, id, null); //newTooltip);
         this.setState({ loading: false });
@@ -150,9 +156,10 @@ class AirplaneSeats extends Component {
     const myPlane = new aviao(64, 2, 4, 2);
     const rows = iniciaAssentos(myPlane);
     const seatCost = 100.0;
-    const seatChoose = 5;
+    const seatChoose = this.state.seats;
     let seat = Math.round(seatChoose * 100) / 100;
 
+    console.log(this.props)
     const { loading } = this.state;
     return (
       <div className="main">
@@ -160,7 +167,7 @@ class AirplaneSeats extends Component {
         <div className="filter-container">
         <FilterWrapper>
 
-          <h2>Escolha seus {seatChoose} assentos:<br></br>  </h2>
+          <h2>Escolha seus {this.state.seats} assentos:<br/>  </h2>
 
             <SeatPicker
               addSeatCallback={this.addSeatCallback}
@@ -187,6 +194,4 @@ class AirplaneSeats extends Component {
   }
 }
 
-const rootElement = document.getElementById("root");
-ReactDOM.render(<AirplaneSeats />, rootElement);
-export default AirplaneSeats;
+export default withCookies(AirplaneSeats);

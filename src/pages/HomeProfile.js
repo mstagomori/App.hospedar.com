@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {importedStates} from './../Data/states.js';
 import {homeCardStates} from './../Data/homeCardStates';
 import Carousel from 'react-elastic-carousel'
@@ -8,7 +8,8 @@ import LinkButton from '../Component/LinkButton'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 import { useCookies } from 'react-cookie';
-
+import axios from 'axios';
+import { GET_CARD_FLIGHTS } from '../Shared/urls';
 
 const FilterWrapper = styled.div`
 		width: 100%;
@@ -21,7 +22,6 @@ const FilterWrapper = styled.div`
 		padding: 20px;
 		font-family: 'Roboto', sans-serif;
 		margin: 10px 10px 10px 10px;
-
 		@media(min-width: 1200px) {
 				max-width: 1200px;
 		}
@@ -37,7 +37,7 @@ export default function Home (props) {
         dataIda: "",
         dataVolta: "",
         seats: ""
-    })
+})
 	const [cookies, setCookie] = useCookies(['seats']);
 
 	function handleCookies() {
@@ -46,7 +46,21 @@ export default function Home (props) {
 		setCookie('dataIda', fields.dataIda, { path: '/' });
 		setCookie('dataVolta', fields.dataVolta, { path: '/' });
 		setCookie('seats', fields.seats, { path: '/' });
-    }
+    } 
+	
+	const [flights, setFlights] = useState({availableFlights:[]})
+
+	useEffect(() => {
+	axios.get(GET_CARD_FLIGHTS)
+		.then(function (response) {
+		setFlights(x=>({ ...x ,availableFlights:[response.data]}), flights.availableFlights);
+		console.log(flights);
+		})
+		.catch(function (error) {
+		console.log(error);
+		})
+	});
+
 
 	const breakPoints = [
 		{ width: 1, itemtsToShow: 1 },

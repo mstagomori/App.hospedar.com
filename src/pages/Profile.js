@@ -15,7 +15,6 @@ const FilterWrapper = styled.div`
     padding: 20px;
     font-family: 'Roboto', sans-serif;
     margin: 10px 10px 10px 10px;
-
     @media(min-width: 1200px) {
         max-width: 1200px;
     }

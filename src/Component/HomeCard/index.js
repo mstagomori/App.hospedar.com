@@ -9,7 +9,7 @@ import CardButton from '../CardButton'
 const CardWrapper = styled.div`
     width: 18rem;
     margin-right: 15px;
-    border-radius: .25rem;
+    border-radius: 5px;
     border: solid inset 0.5px rgba(173, 173, 173, 0.445);
     transition: 0.3s;
     display: flex;
@@ -19,7 +19,7 @@ const CardWrapper = styled.div`
         box-shadow: 5px 5px 11px rgba(33,33,33,.2);
     }
 
-    h3 {
+    h5 {
         margin-bottom: 40px;
     }
 `
@@ -40,10 +40,10 @@ class HomeCard extends React.Component {
             <CardWrapper>
                 <Card>
                     <ImgWrapper>
-                        <Image src={this.props.img}/>
+                        <Image src={this.props.img} rounded/>
                     </ImgWrapper>
                     <Card.Body>
-                        <h3>{this.props.city}</h3>
+                        <h5>Destino: {this.props.city}</h5>
                         <ButtonWrapper>
                             <CardButton href="#" name="Price"/>
                         </ButtonWrapper>

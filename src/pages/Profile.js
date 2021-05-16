@@ -89,60 +89,18 @@ export default function Profile() {
                 ></input>
               </div>
 
-              <div class="form-group col-md-6">
-                <label for="inputPassword4">
-                  Ultimos 4 digitos do Cartão de Crédito
-                </label>
-                <input
-                  type="text"
-                  readonly
-                  class="form-control"
-                  bg="white"
-                  id="staticEmail"
-                  value="2312"
-                ></input>
-              </div>
-            </div>
-            <div class="w-100 d-flex justify-content-end">
-              <LinkButton href="/changeprofile" name="Editar" />
-            </div>
-          </form>
-          <h2>Minhas Viagens</h2>
-          <form>
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="inputEmail4">Voo</label>
-                <input
-                  type="text"
-                  readonly
-                  class="form-control"
-                  bg="white"
-                  id="staticEmail"
-                  value="XYZ"
-                ></input>
-              </div>
-              <div class="form-group col-md-6">
-                <label for="inputPassword4">Horário</label>
-                <input
-                  type="text"
-                  readonly
-                  class="form-control"
-                  bg="white"
-                  id="staticEmail"
-                  value="HH:MM"
-                ></input>
-              </div>
-              <div class="form-group col-md-6">
-                <label for="inputEmail4">Assentos</label>
-                <input
-                  type="text"
-                  readonly
-                  class="form-control"
-                  bg="white"
-                  id="staticEmail"
-                  value="B3,B4,B5"
-                ></input>
-              </div>
+                                <div class="form-group col-md-6">
+                                <label for="inputEmail4">Valor</label>
+                                <input type="text" readonly class="form-control" bg = "white" id="staticEmail" value="R$ 500,00"></input>
+                                {/* <input type="date" class="form-control" id="inputEmail4"/> */}
+                                </div>
+                                
+                            </div>
+                            <div class="w-100 d-flex justify-content-end">
+                                <LinkButton href="/" name="Alterar Minha Viagem"/>
+                            </div>
+                        
+                        </form>
 
               <div class="form-group col-md-6">
                 <label for="inputEmail4">Valor</label>

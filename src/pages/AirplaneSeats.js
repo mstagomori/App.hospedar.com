@@ -4,6 +4,7 @@ import SeatPicker from "react-seat-picker";
 import NavBarProfile from "../Component/NavBarProfile";
 import styled from "styled-components";
 import { withCookies, Cookies } from 'react-cookie';
+import {Link} from 'react-router-dom'
 
 
 const FilterWrapper = styled.div`
@@ -111,6 +112,16 @@ function iniciaAssentos(aviao) {
   return mSeats;
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 class AirplaneSeats extends Component {
   constructor(props){
     super(props);
@@ -134,6 +145,7 @@ class AirplaneSeats extends Component {
         // const newTooltip = `tooltip for id-${id} added by callback`;
         this.state.chosenSeats.push(number);
         console.log(this.state.chosenSeats);
+        console.log(this.state.chosenSeats.length);
         addCb(row, number, id, null); //newTooltip);
         this.setState({ loading: false });
       }
@@ -154,6 +166,7 @@ class AirplaneSeats extends Component {
         const index = this.state.chosenSeats.indexOf(number);
         this.state.chosenSeats.splice(index, 1);
         console.log(this.state.chosenSeats);
+        console.log(this.state.chosenSeats.length);
 
         const newTooltip = ["A", "B", "C"].includes(row) ? null : "";
         removeCb(row, number, newTooltip);
@@ -161,6 +174,43 @@ class AirplaneSeats extends Component {
       }
     );
   };
+
+  handleValidation = () => {
+    let assentosEscolhidos = this.state.chosenSeats;
+    let errorsInput = {};
+    let formIsValid = true;
+    
+    // Origem
+    // if (!estados.includes(fields.origem)){
+    //     formIsValid = false;
+    // }
+    // // Destino
+    // if ((!estados.includes(fields.destino)) || (fields.origem == fields.destino)){
+    //     formIsValid = false;
+    // }
+    // Data Ida
+    console.log(this.state.chosenSeats.length);
+    if (this.state.chosenSeats.length < parseInt(this.state.seats)){
+        formIsValid = false;
+    }
+    
+  
+    return formIsValid;
+  
+    
+  }
+  
+  contactSubmit = (evento) => {
+    let valid = this.handleValidation();
+    if(valid){
+       //alert("Form submitted");
+       //handleCookies();
+    }else{
+        evento.preventDefault();
+        alert("Preencha todos os dados corretamente.")
+  
+    }
+  }
 
   render() {
     const myPlane = new aviao(64, 2, 4, 2);
@@ -175,7 +225,7 @@ class AirplaneSeats extends Component {
         <NavBarProfile />    
         <div className="filter-container">
         <FilterWrapper>
-
+          
           <h2>Escolha seus {this.state.seats} assentos:<br/>  </h2>
 
             <SeatPicker
@@ -192,9 +242,17 @@ class AirplaneSeats extends Component {
 
         <h3 id="seat">O valor total foi: R$ {(seat * seatCost).toFixed(2)}</h3>
         <div class="w-200 d-flex justify-content-center">
-          <a href="/payment" type="submit" class="btn btn-danger">
-            Confirmar
-          </a>
+        <Link
+            className="btn btn-danger"
+            to={{
+                pathname: "/payment",
+                //state: {fields: fields}
+            }}
+            onClick={this.contactSubmit}
+        >
+        Buscar
+        </Link>
+
         </div>
         </FilterWrapper>
         </div>

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import ReactDOM from "react-dom";
 import SeatPicker from "react-seat-picker";
 import NavBarProfile from "../Component/NavBarProfile";
@@ -117,7 +117,8 @@ class AirplaneSeats extends Component {
     const {cookies} = props
     this.state = {
       loading: false,
-      seats: cookies.get('seats')
+      seats: cookies.get('seats'),
+      chosenSeats: []
     };
 
   }
@@ -129,7 +130,10 @@ class AirplaneSeats extends Component {
       },
       async () => {
         await new Promise((resolve) => setTimeout(resolve, 50));
+        console.log(`Added seat ${number}, row ${row}, id ${id}`);
         // const newTooltip = `tooltip for id-${id} added by callback`;
+        this.state.chosenSeats.push(number);
+        console.log(this.state.chosenSeats);
         addCb(row, number, id, null); //newTooltip);
         this.setState({ loading: false });
       }
@@ -145,6 +149,12 @@ class AirplaneSeats extends Component {
         await new Promise((resolve) => setTimeout(resolve, 50));
         console.log(`Removed seat ${number}, row ${row}, id ${id}`);
         // A value of null will reset the tooltip to the original while '' will hide the tooltip
+
+        // Remove seat from chosenSeats
+        const index = this.state.chosenSeats.indexOf(number);
+        this.state.chosenSeats.splice(index, 1);
+        console.log(this.state.chosenSeats);
+
         const newTooltip = ["A", "B", "C"].includes(row) ? null : "";
         removeCb(row, number, newTooltip);
         this.setState({ loading: false });
@@ -159,7 +169,6 @@ class AirplaneSeats extends Component {
     const seatChoose = this.state.seats;
     let seat = Math.round(seatChoose * 100) / 100;
 
-    console.log(this.props)
     const { loading } = this.state;
     return (
       <div className="main">

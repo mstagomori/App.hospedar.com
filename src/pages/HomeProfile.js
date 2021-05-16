@@ -133,8 +133,8 @@ export default function Home (props) {
 
 		<div className="offer-container">
 		<div className="offer-description-container">
-		<h6>Aproveite</h6>
-		<h3>Rio de Janeiro, a cidade maravilhosa</h3>
+		<h6>Viaje</h6>
+		<h3>Vôos a partir de: Rio de Janeiro</h3>
 		</div>
 
 

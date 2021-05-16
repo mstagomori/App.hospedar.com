@@ -8,31 +8,26 @@ import scImg from '../assets/santa-catarina.jpeg'
 export const homeCardStates = [
     {
         "ID": "1",
-        "Nome": "Rio de Janeiro",
-        "img": `${rjImg}`
-    },
-    {
-        "ID": "2",
         "Nome": "São Paulo",
         "img": `${spImg}`
     },
     {
-        "ID": "3",
+        "ID": "2",
         "Nome": "Minas Gerais",
         "img": `${mgImg}`
     },
     {
-        "ID": "4",
+        "ID": "3",
         "Nome": "Espírito Santo",
         "img": `${esImg}`
     },
     {
-        "ID": "5",
+        "ID": "4",
         "Nome": "Bahia",
         "img": `${baImg}`
     },
     {
-        "ID": "6",
+        "ID": "5",
         "Nome": "Santa Catarina",
         "img": `${scImg}`
     }

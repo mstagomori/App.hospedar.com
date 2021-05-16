@@ -36,13 +36,17 @@ export default function Home (props) {
         destino: "",
         dataIda: "",
         dataVolta: "",
-        numPassageiros: ""
+        seats: ""
     })
 	const [cookies, setCookie] = useCookies(['seats']);
 
-	function onChange(event) {
-		setCookie('seats', event.target.value, { path: '/' });
-	  }
+	function handleCookies() {
+		setCookie('origem', fields.origem, { path: '/' });
+		setCookie('destino', fields.destino, { path: '/' });
+		setCookie('dataIda', fields.dataIda, { path: '/' });
+		setCookie('dataVolta', fields.dataVolta, { path: '/' });
+		setCookie('seats', fields.seats, { path: '/' });
+    }
 
 	const breakPoints = [
 		{ width: 1, itemtsToShow: 1 },
@@ -100,7 +104,7 @@ export default function Home (props) {
 
 		<div class="form-group col-md-4">
 		<label for="inputPassword4">Número de passageiros</label>
-		<select id="inputPassword4" class="form-control" onChange={onChange} name="numPassageiros">
+		<select id="inputPassword4" class="form-control" onChange={handleInputChange} name="seats">
 		<option selected>Selecione</option>
 		<option>1</option>
 		<option>2</option>
@@ -122,6 +126,7 @@ export default function Home (props) {
                 pathname: "/destinations",
                 state: {fields: fields}
             }}
+            onClick={handleCookies}
         >
         Buscar
         </Link>

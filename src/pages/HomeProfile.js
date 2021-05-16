@@ -1,14 +1,15 @@
-import React, { useState } from 'react'
-import {importedStates} from './../Data/states.js';
-import {homeCardStates} from './../Data/homeCardStates';
-import Carousel from 'react-elastic-carousel'
-import NavBar from '../Component/NavBar'
-import HomeCard from '../Component/HomeCard'
-import LinkButton from '../Component/LinkButton'
-import styled from 'styled-components'
-import {Link} from 'react-router-dom'
-import { useCookies } from 'react-cookie';
-
+import React, { useEffect, useState } from "react";
+import { importedStates } from "./../Data/states.js";
+import { homeCardStates } from "./../Data/homeCardStates";
+import Carousel from "react-elastic-carousel";
+import NavBar from "../Component/NavBar";
+import HomeCard from "../Component/HomeCard";
+import LinkButton from "../Component/LinkButton";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { useCookies } from "react-cookie";
+import axios from "axios";
+import { GET_CARD_FLIGHTS } from '../Shared/urls'
 
 const FilterWrapper = styled.div`
 		width: 100%;
@@ -36,13 +37,34 @@ export default function Home (props) {
         destino: "",
         dataIda: "",
         dataVolta: "",
-        numPassageiros: ""
+        seats: ""
     })
 	const [cookies, setCookie] = useCookies(['seats']);
 
-	function onChange(event) {
-		setCookie('seats', event.target.value, { path: '/' });
-	  }
+  const [flights, setFlights] = useState([{}])
+
+	function handleCookies() {
+		setCookie('origem', fields.origem, { path: '/' });
+		setCookie('destino', fields.destino, { path: '/' });
+		setCookie('dataIda', fields.dataIda, { path: '/' });
+		setCookie('dataVolta', fields.dataVolta, { path: '/' });
+		setCookie('seats', fields.seats, { path: '/' });
+    }
+
+     useEffect(() => {
+       axios
+         .get(GET_CARD_FLIGHTS)
+         .then(function (response) {
+           setFlights(response.data);
+           console.log(response.data);
+         })
+         .catch(function (error) {
+           console.log(error);
+         })
+         .then(function () {
+           // always executed
+         });
+     });
 
 	const breakPoints = [
 		{ width: 1, itemtsToShow: 1 },
@@ -84,14 +106,6 @@ export default function Home (props) {
             <option key={key} value={item.Nome} /> )}
         </datalist>
         </div>
-		<div class="form-group col-md-6">
-		<label for="inputPassword4">Destino</label>
-		<input type="text" class="form-control" id="inputPassword4" onChange={handleInputChange} list="cities" name="destino"/>
-		</div>
-		<div class="form-group col-md-4">
-		<label for="inputPassword4">Data Ida</label>
-		<input type="date" class="form-control" id="inputPassword4" onChange={handleInputChange} name="dataIda"/>
-		</div>
 
 		<div class="form-group col-md-4">
 		<label for="inputPassword4">Data Volta</label>
@@ -100,7 +114,7 @@ export default function Home (props) {
 
 		<div class="form-group col-md-4">
 		<label for="inputPassword4">Número de passageiros</label>
-		<select id="inputPassword4" class="form-control" onChange={onChange} name="numPassageiros">
+		<select id="inputPassword4" class="form-control" onChange={handleInputChange} name="seats">
 		<option selected>Selecione</option>
 		<option>1</option>
 		<option>2</option>
@@ -122,6 +136,7 @@ export default function Home (props) {
                 pathname: "/destinations",
                 state: {fields: fields}
             }}
+            onClick={handleCookies}
         >
         Buscar
         </Link>
@@ -133,8 +148,8 @@ export default function Home (props) {
 
 		<div className="offer-container">
 		<div className="offer-description-container">
-		<h6>Aproveite</h6>
-		<h3>Rio de Janeiro, a cidade maravilhosa</h3>
+		<h6>Viaje</h6>
+		<h3>Vôos a partir de: Rio de Janeiro</h3>
 		</div>
 
 
